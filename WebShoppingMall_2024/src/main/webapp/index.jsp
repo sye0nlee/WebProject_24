@@ -13,12 +13,12 @@
 	//로그아웃 유무에 따라 세션값에 저장된 id 보여줌.
 		String logout = request.getParameter("logout");
 		if(logout!=null){
-			session.setAttribute("id", null);
+			session.setAttribute("user_id", null);
 			session.setMaxInactiveInterval(0);	//세션시간 0 
 //			session.invalidate(); // 세션 초기화
 
 		}else{
-			session.setAttribute("id", request.getParameter("id"));
+			session.setAttribute("user_id", request.getParameter("user_id"));
 		}
 	%>
 	

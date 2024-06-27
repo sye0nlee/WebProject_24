@@ -41,12 +41,14 @@ public class DBConnPool{
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
 		psmt = conn.prepareStatement(sql);
-		psmt.setString(1, bean.getId());
-		psmt.setString(2, bean.getPwd());
-		psmt.setString(3, bean.getName());
-		psmt.setString(4, bean.getEmail());
-		psmt.setString(5, bean.getNickname());
+		psmt.setString(1, bean.getUser_id());
+		psmt.setString(2, bean.getUser_pwd());
+		psmt.setString(3, bean.getUser_name());
+		psmt.setString(4, bean.getUser_gender());
+		psmt.setString(5, null);
 		psmt.setInt(6, 1);
+		psmt.setString(7, bean.getUser_email());
+		psmt.setString(8, bean.getUser_nickname());
 		rs = psmt.executeQuery();
 		rs.close();
 		psmt.close();
@@ -59,8 +61,8 @@ public class DBConnPool{
 		boolean result = false;
 		try { 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, bean.id);
-			psmt.setString(2, bean.pwd);
+			psmt.setString(1, bean.getUser_id());
+			psmt.setString(2, bean.getUser_pwd());
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {
@@ -77,7 +79,7 @@ public class DBConnPool{
 		
 		try { 	//중복 O
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, bean.id);
+			psmt.setString(1, bean.user_id);
 			rs = psmt.executeQuery();
 		
 			if (rs.next()) {

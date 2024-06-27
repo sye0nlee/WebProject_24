@@ -36,9 +36,9 @@
 			<div class="w3-container w3-quarter w3-card-2" style="display: table-cell; width:200px; height:220px;">
 				<form action="/SignInController" method = "post" style="margin-top:25px">
 						<fieldset>
-							<input type="text" class="w3-input" style="width:90%" name="id" id="id" placeholder="아이디" value = <%=cookie%>>
+							<input type="text" class="w3-input" style="width:90%" name="user_id" id="user_id" placeholder="아이디" value = <%=cookie%>>
 							
-							<input type="password" class="w3-input" style="width:90%" name="pwd" id="pwd" placeholder="비밀번호">
+							<input type="password" class="w3-input" style="width:90%" name="user_pwd" id="user_pwd" placeholder="비밀번호">
 						</fieldset>
 						
 					<input type="submit" class="w3-button w3-section w3-black w3-gray" value="로그인">

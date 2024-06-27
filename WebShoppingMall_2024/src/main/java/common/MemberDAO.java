@@ -27,7 +27,7 @@ public class MemberDAO {
 
 	public boolean MemberInsert(MemberDTO bean) throws SQLException {
 		
-		String sql = "insert into Member values(?, ?, ?, ?, ?, ?)";
+		String sql = "insert into \"UserInfo\" values (?, ?, ?, ?, ?, ?, ?, ?)";
 		result = db.insert(sql,bean);
 			
 		return result;
@@ -37,7 +37,7 @@ public class MemberDAO {
 	
 	public boolean MemberCheck(MemberDTO bean) throws SQLException {
 
-		String sql = "SELECT * FROM Member WHERE id = ? AND pwd = ?";
+		String sql = "SELECT * FROM \"UserInfo\" WHERE \"user_id\" = ? AND \"user_pwd\" = ?";
 		result = db.check(sql, bean);
 		
 		return result;
@@ -48,7 +48,7 @@ public class MemberDAO {
 	
 	public boolean isRegisterd(MemberDTO bean) {
 		
-		String sql = "SELECT * FROM Member WHERE id = ?";
+		String sql = "SELECT * FROM \"UserInfo\" WHERE \"user_id\" = ?";
 		result = db.isRegisterd(sql, bean);
 
         return result;

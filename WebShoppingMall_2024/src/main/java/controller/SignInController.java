@@ -34,11 +34,11 @@ public class SignInController extends HttpServlet {
 		
     	request.setCharacterEncoding("UTF-8");
     
-    	makeCookie(request, response, request.getParameter("id"));
+    	makeCookie(request, response, request.getParameter("user_id"));
     	
 		MemberDTO member = new MemberDTO();
-		member.setId(request.getParameter("id"));
-		member.setPwd(request.getParameter("pwd"));
+		member.setUser_id(request.getParameter("user_id"));
+		member.setUser_pwd(request.getParameter("user_pwd"));
 		
 		try {
 			result = memberDao.MemberCheck(member);
@@ -49,8 +49,8 @@ public class SignInController extends HttpServlet {
 		if(result) {
     		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
     		
-    		String id = request.getParameter("id");
-    		String pwd = request.getParameter("pwd");
+    		String id = request.getParameter("user_id");
+    		String pwd = request.getParameter("user_pwd");
 
     		dispatcher.forward(request, response);
     	}else {

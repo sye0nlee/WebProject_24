@@ -39,11 +39,11 @@ public class SignUpController extends HttpServlet {
 			alert(request, response);
 		}else {
 			
-			member.setId(request.getParameter("id"));
-			member.setPwd(request.getParameter("pwd"));
-			member.setName(request.getParameter("name"));
-			member.setEmail(request.getParameter("email"));
-			member.setNickname(request.getParameter("nickname"));
+			member.setUser_id(request.getParameter("user_id"));
+			member.setUser_pwd(request.getParameter("user_pwd"));
+			member.setUser_name(request.getParameter("user_name"));
+			member.setUser_email(request.getParameter("user_email"));
+			member.setUser_nickname(request.getParameter("user_nickname"));
 			
 			try {
 				memberDao.MemberInsert(member);
