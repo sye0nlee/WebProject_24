@@ -23,17 +23,3 @@
 	%>
 	
 	<%@ include file="List/menuBar.jsp" %>
-	<%@ include file="List/slide.jsp" %>
-
-
-	<center>
-	
-	<c:if test="${ user_id != null}">
-		<a href="Board.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">상품등록</a> 
-	</c:if>
-		
-	</center>
-	
-	
-</body>
-</html>
