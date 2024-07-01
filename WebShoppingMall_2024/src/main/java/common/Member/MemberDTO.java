@@ -1,4 +1,4 @@
-package common;
+package common.Member;
 
 public class MemberDTO{
 	

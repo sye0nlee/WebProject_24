@@ -13,9 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.DBConnPool;
-import common.MemberDAO;
-import common.MemberDTO;
-
+import common.Member.*;
 @WebServlet("/SignInController")
 public class SignInController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -88,4 +86,3 @@ public class SignInController extends HttpServlet {
 		
 		}
 	}
-

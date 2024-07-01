@@ -1,4 +1,4 @@
-package common;
+package common.Member;
 
 import java.io.PrintWriter;
 import java.net.URLEncoder;
@@ -14,6 +14,8 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import common.DBConnPool;
+
 
 public class MemberDAO {
 
@@ -28,7 +30,7 @@ public class MemberDAO {
 	public boolean MemberInsert(MemberDTO bean) throws SQLException {
 		
 		String sql = "insert into \"UserInfo\" values (?, ?, ?, ?, ?, ?, ?, ?)";
-		result = db.insert(sql,bean);
+		result = db.insertMember(sql,bean);
 			
 		return result;
 			

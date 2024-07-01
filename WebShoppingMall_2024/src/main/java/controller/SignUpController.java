@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.DBConnPool;
-import common.MemberDAO;
-import common.MemberDTO;
+import common.Member.*;
 
 @WebServlet("/SignUpController")
 public class SignUpController extends HttpServlet {

@@ -26,7 +26,11 @@
 
 
 	<center>
-		MAIN.jsp
+	
+	<c:if test="${ user_id != null}">
+		<a href="Board.jsp" class="w3-bar-item w3-button w3-hover-white">상품등록</a> 
+	</c:if>
+		
 	</center>
 	
 	
