@@ -1,12 +1,9 @@
 package common;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.file.Files;
-import java.sql.Blob;
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,14 +16,13 @@ import java.util.Map;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
+
 import javax.sql.DataSource;
 
 import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 
 import common.Item.ItemDTO;
 import common.Member.MemberDTO;
@@ -174,11 +170,59 @@ public class DBConnPool{
         return result;
     }
 	
-	
+    public void pagingBoard(String sql) {
+    	int totalRowCount = 0;
+    	try {
+    		
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				totalRowCount = rs.getInt(1);
+			}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    public ArrayList<ItemDTO> displayItem(String sql, int pageNumber) throws IOException {
+    	
+    	
+    	ArrayList<ItemDTO> ItemList = new ArrayList<ItemDTO>();
+    	
+    	String pageNo = "1";
+    	
+    	int tmpPageNo = Integer.parseInt(pageNo);
+    	int beginRow = (tmpPageNo - 1) * 10;
+    	int row = 10;
+    	
+    	
+    	try {
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			/*
+			 * psmt.setInt(1, beginRow); psmt.setInt(2, row);
+			 */
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				ItemDTO item = new ItemDTO();
+				item.setItem_name(rs.getString(2));
+				item.setItem_price(rs.getInt(3));
+				ItemList.add(item);
+				//map.put("item_name", rs.getString("item_name"));
+				//map.put("item_price", rs.getString("item_price"));
+				//list.add(map);
+				
+			}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		return ItemList;
+    	
+
 
 	
 	
-
+    }
 	
 	public void close() {
 		try {

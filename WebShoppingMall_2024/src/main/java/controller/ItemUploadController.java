@@ -57,10 +57,6 @@ public class ItemUploadController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	ItemDTO item = new ItemDTO();
-
-    	
-    	
-
     	
     	try {
     		int maxFileSize = 1024*1024*10;

@@ -1,6 +1,7 @@
 package common.Item;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.sql.Connection;
@@ -32,7 +33,7 @@ import fileupload.MyFileDTO;
 public class ItemDAO {
 	private DBConnPool db;
 	boolean result = false;
-	
+	ResultSet rs;
 	public ItemDAO(){
 		db = new DBConnPool();
 	}
@@ -49,6 +50,14 @@ public class ItemDAO {
 		String sql = "INSERT INTO \"ItemImg\" VALUES (Img_seq.NEXTVAL, Item_seq.NEXTVAL, ?)";
 		result = db.InsertImg(sql, bean, request, multi);
 		return result;
+
+	}
+
+	public ArrayList<ItemDTO> displayItem(int pageNumber) throws SQLException, IOException{
+		//String pagingSql = "SELECT COUNT(*) FROM \"Item\"";
+		String sql = "SELECT * FROM \"Item\" ORDER BY \"item_id\" DESC";
+		return db.displayItem(sql, pageNumber);
+	
 
 	}
 	

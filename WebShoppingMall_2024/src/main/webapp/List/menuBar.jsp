@@ -22,8 +22,8 @@
 <div class="w3-bar w3-yellow">
 
 				<div>
-						<a href="index.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">Main</a>
-						<a href="streetWear.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">Street-Wear</a>
+						<a href="/index.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">Main</a>
+						<a href="/streetWear.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">Street-Wear</a>
 						<a href="#" class="w3-bar-item w3-button w3-hover-white">Young-Casual</a>
 						<a href="#" class="w3-bar-item w3-button w3-hover-white">Accessory</a>
 						<a href="mypage.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">My-Page</a>
