@@ -1,5 +1,9 @@
 package common.Item;
 
+import java.io.File;
+
+import oracle.sql.BLOB;
+
 public class ItemDTO{
 	
 	String item_id;
@@ -10,7 +14,6 @@ public class ItemDTO{
 	Integer item_left;
 	Integer item_like;
 	Integer item_view;
-	String img_id;
 	String info_pwd;
 	
 	
@@ -61,12 +64,6 @@ public class ItemDTO{
 	}
 	public void setItem_view(Integer item_view) {
 		this.item_view = item_view;
-	}
-	public String getImg_id() {
-		return img_id;
-	}
-	public void setImg_id(String img_id) {
-		this.img_id = img_id;
 	}
 	public String getInfo_pwd() {
 		return info_pwd;
