@@ -29,36 +29,34 @@
 	int pageNumber = 1;
 	ItemDAO dao = new ItemDAO();
 	ArrayList<ItemDTO> list1 = dao.displayItem(pageNumber);
-	ArrayList<ItemDTO> list2 = dao.displayItem(pageNumber);
-	for(int i = 0; i<list1.size(); i = i+3){
+	
+	for(int i = 0; i<list1.size(); i++)
+	{
+		int row = i % 3;
+		ServletContext sc = getServletContext();
+		String realFolder = sc.getRealPath("/File");
+		String[] split = realFolder.split("wtpwebapps");
+		realFolder = split[1]; // realPath에서 프로젝트 경로만 남김. 왜 상대경로로만 될까...ㅜㅜ 
+		String fullpath1 = realFolder + "\\"+ dao.displayImg(list1.get(i).getItem_id()); 
+		//String fullpath2 = realFolder + "\\"+ dao.displayImg(list1.get(i+1).getItem_id()); 
+		//String fullpath3 = realFolder + "\\"+ dao.displayImg(list1.get(i+2).getItem_id()); 
 		
-%>
-	 <dl>
+	%>
+	<c:if test = "${ row == 0 }">
 	 	<div class="w3-row-padding">
+	</c:if>	 
 		    <div class="w3-col s4">
-			      <img src="List/img/sound.jpg" style="width:100%">
+			      <img src=<%=fullpath1%>  style="width:100%; padding:5px" alt="img">
 			      <center>
 			      	<dt>상품명 : <%=list1.get(i).getItem_name() %></dt>
 			      	<dt>가격 : <%=list1.get(i).getItem_price() %> 원</dt>
 			      </center>
-			  </div>
-			  <div class="w3-col s4">
-			      <img src="List/img/sound.jpg" style="width:100%">
-			      <center>
-			      	<dt>상품명 : <%=list1.get(i+1).getItem_name() %></dt>
-			      	<dt>가격 : <%=list1.get(i+1).getItem_price() %> 원</dt>
-			      </center>
-			  </div>
-			  <div class="w3-col s4">
-			      <img src="List/img/sound.jpg" style="width:100%">
-			      <center>
-			      	<dt>상품명 : <%=list1.get(i+2).getItem_name() %></dt>
-			      	<dt>가격 : <%=list1.get(i+2).getItem_price() %> 원</dt>
-			      </center>
-			  </div>
+			</div>
 		 </div>
-		  
-	</dl>
+	<c:if test = "${ row == 0 }">
+	 	</div>
+	</c:if>	
+	
   
   </div>
 </div>

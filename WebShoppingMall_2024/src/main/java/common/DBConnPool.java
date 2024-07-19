@@ -151,15 +151,15 @@ public class DBConnPool{
         	PreparedStatement psmt = conn.prepareStatement(sql);
 
             //psmt.setString(1, bean.getItem_id());
-        	String savePath = request.getServletContext().getRealPath("/File");
-        	 
+        	String savePath = request.getServletContext().getRealPath("File");
+        	
         	// 전송받은 데이터가 파일일 경우 getFilesystemName()으로 파일 이름을 받아올 수 있다.
         	String fileName = multi.getFilesystemName("fileName");
-        	 
         	// 업로드한 파일의 전체 경로를 DB에 저장하기 위함
         	String m_fileFullPath = savePath + "\\" + fileName;
-        	 
+        	
             psmt.setString(1, m_fileFullPath);
+            psmt.setString(2, fileName);
             psmt.executeUpdate();
 
             System.out.println("Image saved to database successfully!");
@@ -190,11 +190,6 @@ public class DBConnPool{
     	
     	ArrayList<ItemDTO> ItemList = new ArrayList<ItemDTO>();
     	
-    	String pageNo = "1";
-    	
-    	int tmpPageNo = Integer.parseInt(pageNo);
-    	int beginRow = (tmpPageNo - 1) * 10;
-    	int row = 10;
     	
     	
     	try {
@@ -205,8 +200,10 @@ public class DBConnPool{
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				ItemDTO item = new ItemDTO();
+				item.setItem_id(rs.getString(1));
 				item.setItem_name(rs.getString(2));
 				item.setItem_price(rs.getInt(3));
+			
 				ItemList.add(item);
 				//map.put("item_name", rs.getString("item_name"));
 				//map.put("item_price", rs.getString("item_price"));
@@ -218,11 +215,33 @@ public class DBConnPool{
         }
 		return ItemList;
     	
+    }
+    
+   
+ public String displayImg(String id) throws IOException {
+	 
+		String sql = "SELECT img_name from \"ItemImg\" where \"item_id\" = ?";
+    	
+		String url = null;
+    	
+    	try {
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setString(1,  id);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				url = rs.getString(1);
+			}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		return url;
+    	
 
 
 	
 	
     }
+	
 	
 	public void close() {
 		try {

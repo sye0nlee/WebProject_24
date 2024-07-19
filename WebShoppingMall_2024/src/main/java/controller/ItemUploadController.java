@@ -1,37 +1,23 @@
 package controller;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.Enumeration;
-import java.util.HashMap;
 
-import javax.rmi.CORBA.Util;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
-import org.apache.tomcat.dbcp.dbcp2.Utils;
 
-import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.*;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import common.DBConnPool;
 import common.Item.*;
 import fileupload.FileUtil;
 import fileupload.MyFileDTO;
-import oracle.sql.BLOB;
 
 
 
@@ -60,19 +46,18 @@ public class ItemUploadController extends HttpServlet {
     	
     	try {
     		int maxFileSize = 1024*1024*10;
-    		
-    		//String originName = file.getSubmittedFileName();
     		String savePath = request.getServletContext().getRealPath("/File");
+    		System.out.println("경로 : "+ savePath);
     		MultipartRequest multi = new MultipartRequest(request, savePath, maxFileSize, "utf-8", new DefaultFileRenamePolicy());
-    		//String filePath = savePath + File.separator + 
+    		
     		result1 = itemDao.insertImg(item, request, multi);
     		
     		//img.setFile(multi.getFile("file"));
         	item.setItem_name(multi.getParameter("item_name"));
-        	item.setItem_seller(multi.getParameter("item_seller"));
+        	item.setItem_seller(multi.getParameter("item_seller")); 
         	item.setItem_info(multi.getParameter("item_info"));
-        	item.setItem_price(0);
-        	item.setItem_left(0);
+        	item.setItem_price(Integer.parseInt(multi.getParameter("item_price")));
+        	item.setItem_left(Integer.parseInt(multi.getParameter("item_left")));
         	item.setItem_like(0);
         	item.setItem_view(0);
         	item.setInfo_pwd(multi.getParameter("info_pwd"));

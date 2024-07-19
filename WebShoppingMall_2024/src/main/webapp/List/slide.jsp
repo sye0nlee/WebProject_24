@@ -9,16 +9,16 @@
 <body>
 
 
-
-<div class="w3-content w3-display-container">
-  <img class="mySlides" src="List/img/coffee.jpg" style="width:100%">
-  <img class="mySlides" src="List/img/sound.jpg" style="width:100%">
-  <img class="mySlides" src="List/img/workbench.jpg" style="width:100%">
+<center>
+<div class="w3-content w3-display-container" style = "padding : 15px">
+  <img class="mySlides" src="List/img/coffee.jpg" style="width:90%">
+  <img class="mySlides" src="List/img/sound.jpg" style="width:90%">
+  <img class="mySlides" src="List/img/workbench.jpg" style="width:90%">
 
   <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 </div>
-
+</center>
 <script>
 var slideIndex = 1;
 showDivs(slideIndex);

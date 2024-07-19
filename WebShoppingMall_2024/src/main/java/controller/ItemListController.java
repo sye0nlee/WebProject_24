@@ -26,11 +26,9 @@ public class ItemListController extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			itemDao.itemList();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		/*
+		 * try { itemDao.itemList(); } catch (SQLException e) { e.printStackTrace(); }
+		 */
 	}
 
 }
