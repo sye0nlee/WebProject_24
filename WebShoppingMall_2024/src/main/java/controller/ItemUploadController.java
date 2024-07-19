@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -43,13 +44,12 @@ public class ItemUploadController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	ItemDTO item = new ItemDTO();
-    	
     	try {
     		int maxFileSize = 1024*1024*10;
     		String savePath = request.getServletContext().getRealPath("/File");
     		System.out.println("경로 : "+ savePath);
     		MultipartRequest multi = new MultipartRequest(request, savePath, maxFileSize, "utf-8", new DefaultFileRenamePolicy());
-    		
+    		String user_id = multi.getParameter("item_seller");
     		result1 = itemDao.insertImg(item, request, multi);
     		
     		//img.setFile(multi.getFile("file"));
@@ -64,8 +64,11 @@ public class ItemUploadController extends HttpServlet {
         	
     		result1 = itemDao.insertItem(item);
     		
+    		if(result1 = true) {
+    			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp?user_id="+user_id);
+        		dispatcher.forward(request, response);
+    		}
     		
-    		response.sendRedirect("index.jsp");
     		
     		
 		} catch (Exception e) {

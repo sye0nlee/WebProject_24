@@ -46,10 +46,6 @@ public class SignInController extends HttpServlet {
 		
 		if(result) {
     		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-    		
-    		String id = request.getParameter("user_id");
-    		String pwd = request.getParameter("user_pwd");
-
     		dispatcher.forward(request, response);
     	}else {
     		alert(request, response);

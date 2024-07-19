@@ -21,7 +21,7 @@
 	<form action="/ItemUploadController" method="post" enctype="multipart/form-data">
 		<div id="bbsCreated">
 			<div class="bbsCreated_bottomLine">
-					상품명 <input type="text" name="item_name" style="width:25%" class="boxTF"/>
+					상품명 <input type="text" name="item_name" style="width:25%" class="boxTF" required/>
 			</div>
 			<div class="bbsCreated_bottomLine">
 				<dl>
@@ -37,14 +37,14 @@
 				</div>
 			<div>
 				<dl>
-					<input type="file" name="fileName">
+					<input type="file" name="fileName" required>
 				</dl>
 			</div>
 			<div class="bbsCreated_noLine">
 				<dl>
 					가격 <input type="Number" name="item_price" min = "0" step = "100" value = "0" required/> 원 /
 					재고수량 <input type="Number" name="item_left" style="width:10%" min = "0" value = "0" required/> 개 <br /><br />
-					패스워드 = <input type="password" name="info_pwd" style="width:10%" class="boxTF"/>
+					패스워드 = <input type="password" name="info_pwd" style="width:10%" class="boxTF"  required/>
 				</dl>		
 			</div>	
 		
