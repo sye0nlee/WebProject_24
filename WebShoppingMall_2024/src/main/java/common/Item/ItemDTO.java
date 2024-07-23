@@ -1,11 +1,7 @@
 package common.Item;
 
-import java.io.File;
-
-import oracle.sql.BLOB;
-
 public class ItemDTO{
-	
+
 	String item_id;
 	String item_name;
 	String item_seller;
@@ -15,8 +11,8 @@ public class ItemDTO{
 	Integer item_like;
 	Integer item_view;
 	String info_pwd;
-	
-	
+
+
 	public String getItem_id() {
 		return item_id;
 	}
@@ -71,5 +67,5 @@ public class ItemDTO{
 	public void setInfo_pwd(String info_pwd) {
 		this.info_pwd = info_pwd;
 	}
-	
+
 }

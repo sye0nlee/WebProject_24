@@ -25,17 +25,17 @@
 				<div>
 				<c:choose>
 					<c:when test="${ user_id == null }">
-						<a href="/index.jsp" class="w3-bar-item w3-button w3-hover-white">Main</a>
-						<a href="/streetWear.jsp" class="w3-bar-item w3-button w3-hover-white">Street-Wear</a>
+						<a href="index.jsp" class="w3-bar-item w3-button w3-hover-white">Main</a>
+						<a href="streetWear.jsp" class="w3-bar-item w3-button w3-hover-white">Street-Wear</a>
 						<a href="#" class="w3-bar-item w3-button w3-hover-white">Young-Casual</a>
 						<a href="#" class="w3-bar-item w3-button w3-hover-white">Accessory</a>
 					</c:when>
 					<c:otherwise>
-						<a href="/index.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">Main</a>
-						<a href="/streetWear.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">Street-Wear</a>
+						<a href="index.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">Main</a>
+						<a href="streetWear.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">Street-Wear</a>
 						<a href="#" class="w3-bar-item w3-button w3-hover-white">Young-Casual</a>
 						<a href="#" class="w3-bar-item w3-button w3-hover-white">Accessory</a>
-						<%-- <a href="/mypage.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">My-Page</a> --%>
+						<a href="mypage.jsp?user_id=${user_id}" class="w3-bar-item w3-button w3-hover-white">My-Page</a>
 					</c:otherwise>
 				</c:choose>
 				</div>

@@ -9,7 +9,7 @@ import javax.servlet.http.Part;
 
 public class FileUtil{
 public static String uploadFile(HttpServletRequest req, String sDirectory) throws ServletException, IOException{
-		
+
 		Part part = req.getPart("file");
 		String partHeader = part.getHeader("content-disposition");
 		String[] phArr = partHeader.split("filename");
@@ -18,8 +18,8 @@ public static String uploadFile(HttpServletRequest req, String sDirectory) throw
 			part.write(sDirectory+ File.separator + originalFileName);
 		}
 		return originalFileName;
-		
+
 	}
-	
-	
+
+
 }

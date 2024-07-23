@@ -1,17 +1,17 @@
 package common.Member;
 
 public class MemberDTO{
-	
+
 	Integer ms_auth = 0;
-	
+
 	String user_id;
 	String user_pwd;
 	String user_name;
-	String user_gender; 
+	String user_gender;
 	String user_email;
 	String user_nickname;
 	String user_address;
-	
+
 	public Integer getMs_auth() {
 		return ms_auth;
 	}
@@ -61,6 +61,6 @@ public class MemberDTO{
 		this.user_address = user_address;
 	}
 
-	
-	
+
+
 }

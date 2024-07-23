@@ -1,7 +1,7 @@
 package fileupload;
 
 public class MyFileDTO{
-	
+
 
 	public String file;
 
@@ -11,9 +11,9 @@ public class MyFileDTO{
 	public void setFile(String file) {
 		this.file = file;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

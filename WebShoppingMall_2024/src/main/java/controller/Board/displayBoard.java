@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,24 +10,38 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.DBConnPool;
 import common.Item.ItemDAO;
+import common.Item.ItemDTO;
 
-@WebServlet("/ItemListController")
-public class ItemListController extends HttpServlet {
+@WebServlet("/displayBoard")
+public class displayBoard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ItemDAO itemDao;
 	private DBConnPool db;
-	boolean result;
-	
-    public ItemListController() {
+
+    public displayBoard() {
         super();
         itemDao = new ItemDAO();
         db = new DBConnPool();
     }
-
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		 * try { itemDao.itemList(); } catch (SQLException e) { e.printStackTrace(); }
-		 */
+		ItemDTO item = new ItemDTO();
+		try {
+
+
+    		//itemDao.displayItem(item);
+
+
+    		response.sendRedirect("index.jsp");
+
+
+		} catch (Exception e) {
+
+    		e.printStackTrace();
+
+		}
+
+		db.close();
 	}
 
 }

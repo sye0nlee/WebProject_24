@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ include file="List/menuBar.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,7 +26,7 @@
 		
 		
 	%>
-	<%@ include file="List/menuBar.jsp" %>
+
 	
 	
 	<center>
@@ -34,7 +34,7 @@
 		<h3>로그인</h3>
 		<div>
 			<div class="w3-container w3-quarter w3-card-2" style="display: table-cell; width:200px; height:220px;">
-				<form action="/SignInController" method = "post" style="margin-top:25px">
+				<form action="SignInController" method = "post" style="margin-top:25px">
 						<fieldset>
 							<input type="text" class="w3-input" style="width:90%" name="user_id" id="user_id" placeholder="아이디" value = <%=cookie%>>
 							
