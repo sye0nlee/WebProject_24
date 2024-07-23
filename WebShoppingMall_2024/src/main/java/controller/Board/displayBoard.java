@@ -28,12 +28,7 @@ public class displayBoard extends HttpServlet {
 		ItemDTO item = new ItemDTO();
 		try {
 
-
-    		//itemDao.displayItem(item);
-
-
     		response.sendRedirect("index.jsp");
-
 
 		} catch (Exception e) {
 

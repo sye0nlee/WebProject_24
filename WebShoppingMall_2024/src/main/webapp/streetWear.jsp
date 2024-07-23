@@ -21,11 +21,11 @@
 </head>
 <body>
 
-<h1>STREET :</h1>
+	<h1>STREET :</h1>
 
-<div class="grid-container">
-  <div class="grid-item">
-  <%
+	<div class="grid-container">
+		<div class="grid-item">
+			<%
 	int pageNumber = 1;
 	ItemDAO dao = new ItemDAO();
 	ArrayList<ItemDTO> list1 = dao.displayItem(pageNumber);
@@ -40,29 +40,41 @@
 		String fullpath1 = realFolder + "\\"+ dao.displayImg(list1.get(i).getItem_id()); 
 		
 	%>
-	<c:if test = "${ row == 0 }">
-	 	<div class="w3-row-padding">
-	</c:if>	 
-		    <div class="w3-col s4">
-			      <img src=<%=fullpath1%>  style="width:100%; padding:5px" alt="img">
-			      <center>
-			      	<dt>상품명 : <%=list1.get(i).getItem_name() %></dt>
-			      	<dt>가격 : <%=list1.get(i).getItem_price() %> 원</dt>
-			      </center>
+			<c:if test="${ row == 0 }">
+				<div class="w3-row-padding">
+			</c:if>
+			<div class="w3-col s4">
+				<img src=<%=fullpath1%> style="width: 100%; padding: 5px" alt="img">
+				<center>
+					<dt>
+						상품명 :
+						<%=list1.get(i).getItem_name() %></dt>
+					<dt>
+						가격 :
+						<%=list1.get(i).getItem_price() %>
+						원
+					</dt>
+				</center>
 			</div>
-		 </div>
-	<c:if test = "${ row == 0 }">
-	 	</div>
-	</c:if>	
-	
-  
-  </div>
-</div>
-<%
-		}
-	
+		</div>
+		<c:if test="${ row == 0 }">
+	</div>
+	</c:if>
 
-%>
+
+	</div>
+	</div>
+	<%
+	}
+	%>
+	<center>
+		<div style="position: fixed; bottom:20px;" class="w3-bar">
+			<a href="#" class="w3-button">&laquo;</a>
+			<a href="#"class="w3-button">1</a> <a href="#" class="w3-button">2</a> 
+			<a href="#" class="w3-button">3</a> <a href="#" class="w3-button">4</a>
+			<a href="#" class="w3-button">5</a> <a href="#" class="w3-button">&raquo;</a>
+		</div>
+	</center>
 </body>
 </html>
 
