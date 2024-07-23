@@ -38,8 +38,6 @@
 		String[] split = realFolder.split("wtpwebapps");
 		realFolder = split[1]; // realPath에서 프로젝트 경로만 남김. 왜 상대경로로만 될까...ㅜㅜ 
 		String fullpath1 = realFolder + "\\"+ dao.displayImg(list1.get(i).getItem_id()); 
-		//String fullpath2 = realFolder + "\\"+ dao.displayImg(list1.get(i+1).getItem_id()); 
-		//String fullpath3 = realFolder + "\\"+ dao.displayImg(list1.get(i+2).getItem_id()); 
 		
 	%>
 	<c:if test = "${ row == 0 }">
