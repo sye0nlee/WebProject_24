@@ -10,43 +10,44 @@
 <script src="./memberJoinCheck.js"></script>
 </head>
 <body>
-	
+
 	<%
-		
-		
-		String cookie = "";
-		Cookie[] cookies = request.getCookies();
-		if(cookies != null && cookies.length > 0){
-			for(int i = 0; i < cookies.length; ++i){
-				if(cookies[i].getName().equals("userId")){
-					cookie = cookies[i].getValue();
-				}
+	String cookie = "";
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null && cookies.length > 0) {
+		for (int i = 0; i < cookies.length; ++i) {
+			if (cookies[i].getName().equals("userId")) {
+		cookie = cookies[i].getValue();
 			}
 		}
-		
-		
+	}
 	%>
 
-	
-	
+
+
 	<center>
-	<div class="w3-main" style = "display: table;">
-		<h3>로그인</h3>
-		<div>
-			<div class="w3-container w3-quarter w3-card-2" style="display: table-cell; width:200px; height:220px;">
-				<form action="SignInController" method = "post" style="margin-top:25px">
+		<div class="w3-main" style="display: table;">
+			<h3>로그인</h3>
+			<div>
+				<div class="w3-container w3-quarter w3-card-2"
+					style="display: table-cell; width: 200px; height: 220px;">
+					<form action="SignInController" method="post"
+						style="margin-top: 25px">
 						<fieldset>
-							<input type="text" class="w3-input" style="width:90%" name="user_id" id="user_id" placeholder="아이디" value = <%=cookie%>>
-							
-							<input type="password" class="w3-input" style="width:90%" name="user_pwd" id="user_pwd" placeholder="비밀번호">
+							<input type="text" class="w3-input" style="width: 90%"
+								name="user_id" id="user_id" placeholder="아이디" value=<%=cookie%>>
+
+							<input type="password" class="w3-input" style="width: 90%"
+								name="user_pwd" id="user_pwd" placeholder="비밀번호">
 						</fieldset>
-						
-					<input type="submit" class="w3-button w3-section w3-black w3-gray" value="로그인">
-					<input type="checkbox" name="loginChk" value="Y"> id 저장
-				</form>
+
+						<input type="submit" class="w3-button w3-section w3-black w3-gray"
+							value="로그인"> <input type="checkbox" name="loginChk"
+							value="Y"> id 저장
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
 	</center>
 
 </body>

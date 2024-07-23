@@ -23,8 +23,6 @@
 	%>
 
 
-
-
 	<center>
 
 		<c:if test="${user_id != null}">
