@@ -39,14 +39,12 @@ public class ItemDAO {
 	}
 	
 	public boolean insertItem(ItemDTO bean) throws SQLException{
-
 		String sql = "INSERT INTO \"Item\" VALUES (Item_seq.NEXTVAL-1, ?, ?, ?, ?, ?,?,?,?)";
 		result = db.insertItem(sql, bean);
-		
 		return result;
 	}
+
 	public boolean insertImg(ItemDTO bean, HttpServletRequest request, MultipartRequest multi) throws Exception{
-		
 		String sql = "INSERT INTO \"ItemImg\" VALUES (Img_seq.NEXTVAL, Item_seq.NEXTVAL, ?, ?)";
 		result = db.InsertImg(sql, bean, request, multi);
 		return result;
@@ -54,15 +52,14 @@ public class ItemDAO {
 	}
 
 	public ArrayList<ItemDTO> displayItem(int pageNumber) throws SQLException, IOException{
-		//String pagingSql = "SELECT COUNT(*) FROM \"Item\"";
 		String sql = "SELECT * FROM \"Item\" ORDER BY \"item_id\" DESC";
 		return db.displayItem(sql, pageNumber);
 	
 
 	}
 	public String displayImg(String id) throws SQLException, IOException{
-		
-		return db.displayImg(id);
+		String sql = "SELECT img_name from \"ItemImg\" where \"item_id\" = ?";
+		return db.displayImg(sql,id);
 	
 
 	}

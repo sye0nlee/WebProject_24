@@ -10,8 +10,7 @@
 <script src="./memberJoinCheck.js"></script>
 </head>
 <body>
-
-	<%
+<%	
 	String cookie = "";
 	Cookie[] cookies = request.getCookies();
 	if (cookies != null && cookies.length > 0) {
@@ -22,8 +21,6 @@
 		}
 	}
 	%>
-
-
 
 	<center>
 		<div class="w3-main" style="display: table;">

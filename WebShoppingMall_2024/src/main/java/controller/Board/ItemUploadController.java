@@ -31,8 +31,7 @@ public class ItemUploadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ItemDAO itemDao;
 	private DBConnPool db;
-	boolean result1;
-	boolean result2;
+	boolean result;
 
     public ItemUploadController() {
         super();
@@ -40,7 +39,6 @@ public class ItemUploadController extends HttpServlet {
         db = new DBConnPool();
     }
 
-    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	ItemDTO item = new ItemDTO();
     	try {
@@ -49,9 +47,8 @@ public class ItemUploadController extends HttpServlet {
     		System.out.println("경로 : "+ savePath);
     		MultipartRequest multi = new MultipartRequest(request, savePath, maxFileSize, "utf-8", new DefaultFileRenamePolicy());
     		String user_id = multi.getParameter("item_seller");
-    		result1 = itemDao.insertImg(item, request, multi);
+    		result = itemDao.insertImg(item, request, multi);
 
-    		//img.setFile(multi.getFile("file"));
         	item.setItem_name(multi.getParameter("item_name"));
         	item.setItem_seller(multi.getParameter("item_seller"));
         	item.setItem_info(multi.getParameter("item_info"));
@@ -61,24 +58,17 @@ public class ItemUploadController extends HttpServlet {
         	item.setItem_view(0);
         	item.setInfo_pwd(multi.getParameter("info_pwd"));
 
-    		result1 = itemDao.insertItem(item);
+    		result = itemDao.insertItem(item);
 
-    		if(result1 = true) {
+    		if(result = true) {
     			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp?user_id="+user_id);
         		dispatcher.forward(request, response);
     		}
 
-
-
 		} catch (Exception e) {
-
     		e.printStackTrace();
-
 		}
-
-		db.close();
-
-
+    	db.close();
     }
 
 

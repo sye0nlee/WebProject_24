@@ -8,6 +8,7 @@
 </style>
 <body>
 
+<!-- 나중엔 보드 안의 이미지 슬라이드 하게 할까... -->
 
 <center>
 <div class="w3-content w3-display-container" style = "padding : 15px">

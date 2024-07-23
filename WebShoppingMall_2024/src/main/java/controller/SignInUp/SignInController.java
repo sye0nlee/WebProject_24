@@ -29,9 +29,7 @@ public class SignInController extends HttpServlet {
     }
 
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     	request.setCharacterEncoding("UTF-8");
 
     	makeCookie(request, response, request.getParameter("user_id"));
