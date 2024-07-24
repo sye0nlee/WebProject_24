@@ -14,7 +14,7 @@
 	String logout = request.getParameter("logout");
 	if (logout != null) {
 		session.setAttribute("user_id", null);
-		session.setMaxInactiveInterval(0); //세션시간 0 
+		session.setMaxInactiveInterval(0); //세션시간 단위 (초)
 		//			session.invalidate(); // 세션 초기화
 
 	} else {
