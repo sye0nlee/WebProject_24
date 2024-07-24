@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ include file="List/menuBar.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,11 +15,10 @@
 		if(logout!=null){
 			session.setAttribute("user_id", null);
 			session.setMaxInactiveInterval(0);	//세션시간 0 
-//			session.invalidate(); // 세션 초기화
 
 		}else{
 			session.setAttribute("user_id", request.getParameter("user_id"));
 		}
 	%>
 	
-	<%@ include file="List/menuBar.jsp" %>
+

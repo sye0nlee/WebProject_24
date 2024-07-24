@@ -18,14 +18,6 @@ import common.DBConnPool;
 import common.Item.ItemDAO;
 import common.Item.ItemDTO;
 
-
-
-@MultipartConfig(
-
-		fileSizeThreshold = 1024*1024,
-		maxFileSize = 1024*1024*10,
-		maxRequestSize = 1024*1024*10*10
-)
 @WebServlet("/ItemUploadController")
 public class ItemUploadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
